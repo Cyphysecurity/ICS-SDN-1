@@ -21,7 +21,7 @@ from enipcip.enip_tcp import ENIP_TCP, ENIP_SendRRData
 from enipcip.enip_udp import ENIP_UDP
 from enipcip.cip import CIP # pylint: disable=W0611
 
-CONTROLLER_IP = '192.168.56.50'
+CONTROLLER_IP = '192.168.56.5'
 CONTROLLER_PORT = 6633
 REST_PORT = 8181
 REST_USER = 'onos'

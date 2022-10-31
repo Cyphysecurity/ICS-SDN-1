@@ -412,6 +412,7 @@ def main():
     }
     global_conf = {
         'server.socket_port': 9999,
+        'server.socket_host': '0.0.0.0',
         'log.access_file': 'webui/logs/access.log',
         'log.error_file': 'webui/logs/error.log',
     }
@@ -423,8 +424,8 @@ def main():
         cherrypy.config.update(global_conf)
         application = MainApp(
             idsconfig='sdnconfig.json',
-            idsiface='att2',
-            onosip='192.168.56.50',
+            idsiface='eth2',
+            onosip='192.168.56.5',
             onosport=8181,
             onosuser='onos',
             onospass='rocks'

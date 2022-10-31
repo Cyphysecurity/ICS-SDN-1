@@ -133,7 +133,7 @@ function refreshDevices() {
                 btn.type = "button";
                 btn.classList.add("btn");
                 btn.classList.add("btn-sm");
-                btn.classList.add("btn-outline-success");
+                btn.classList.add("btn-outline-pblue");
                 btn.onclick = (function (did, rvl) { return function(){ updateDeviceRole(did, rvl); }; })(currdev.id, selrole.value);
                 btn.innerHTML = "Update";
                 iga.appendChild(btn);
@@ -185,7 +185,7 @@ function refreshHosts() {
                 var btn = document.createElement('button');
                 btn.classList.add('btn');
                 btn.classList.add('btn-sm');
-                btn.classList.add('btn-outline-success');
+                btn.classList.add('btn-outline-pblue');
                 btn.onclick = (function(ip, nm){ return function() { updateHostName(ip, nm); }; })(currhost.ipAddresses[0], hname.id);
                 btn.innerHTML = "Update";
                 iga.appendChild(btn);
@@ -211,7 +211,7 @@ function refreshHosts() {
                 btn = document.createElement('button');
                 btn.classList.add('btn');
                 btn.classList.add('btn-sm');
-                btn.classList.add('btn-outline-success');
+                btn.classList.add('btn-outline-pblue');
                 btn.onclick = (function(m, r){ return function() { updateHostRole(m, r); }; })(currhost.mac.split(" ")[0], currhrole.value);
                 btn.innerHTML = "Update";
                 iga.appendChild(btn);
@@ -310,15 +310,15 @@ function refreshPPSChart() {
                         {
                             label: 'Sniffed IP packets',
                             data: ppsdata,
-                            borderColor: 'rgba(199,91,18,1.0)',
-                            backgroundColor: 'rgba(199,91,18,0.33)',
+                            borderColor: 'rgba(253,199,0,1.0)',
+                            backgroundColor: 'rgba(253,199,0,0.20)',
                             pointRadius: 0,
                         },
                         {
                             label: 'Sniffed ENIP packets',
                             data: enipdata,
-                            borderColor: 'rgba(0,133,66,1.0)',
-                            backgroundColor: 'rgba(0,133,66,0.33)',
+                            borderColor: 'rgba(0,60,108,1.0)',
+                            backgroundColor: 'rgba(0,60,108,0.20)',
                             pointRadius: 0,
                         }
                     ]
@@ -356,7 +356,7 @@ function refreshPPSChart() {
                         display: true,
                         position: 'top',
                         text: 'Last 10 minutes',
-                        fontColor: '#008542',
+                        fontColor: '#003c6c',
                         fontSize: 16,
                     },
                     responsive: true,

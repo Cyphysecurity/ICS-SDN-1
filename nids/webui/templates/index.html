@@ -6,28 +6,53 @@
         <script type="text/javascript" src="static/js/chart.js"></script>
         <script type="text/javascript" src="static/js/webui.js"></script>
         <style>
-            .text-flameorange { color: #c75b12!important }
-            .bg-flameorange { background-color: #c75b12!important }
-            .text-ecogreen {color: #008542!important }
-            .bg-ecogreen { background-color: #008542!important }
+            .text-primaryyellow { color: #fdc700!important }
+            .bg-primaryyellow { background-color: #fdc700!important }
+            .text-primaryblue {color: #003c6c!important }
+            .bg-primaryblue { background-color: #003c6c!important }
             .scrollable {
                 max-height: 400px;
                 overflow-y: scroll;
             }
+            .btn-outline-pblue{
+                color:#003c6c;
+                background-color:transparent;
+                background-image:none;
+                border-color:#003c6c
+            }
+            .btn-outline-pblue:hover{
+                color:#fff;
+                background-color:#003c6c;
+                border-color:#003c6c
+            }
+            .btn-outline-pblue.focus,.btn-outline-pblue:focus{
+                box-shadow:0 0 0 .2rem rgba(0,60,108,.5)
+            }
+            .btn-outline-pblue.disabled,.btn-outline-pblue:disabled{
+                color:#003c6c;
+                background-color:transparent
+            }
+            .btn-outline-pblue:not(:disabled):not(.disabled).active,.btn-outline-pblue:not(:disabled):not(.disabled):active,.show>.btn-outline-pblue.dropdown-toggle{
+                color:#fff;
+                background-color:#003c6c;
+                border-color:#003c6c
+            }.btn-outline-pblue:not(:disabled):not(.disabled).active:focus,.btn-outline-pblue:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-pblue.dropdown-toggle:focus{
+                box-shadow:0 0 0 .2rem rgba(0,60,108,.5)
+            }
         </style>
     </head>
-    <body class="bg-ecogreen" onload="refreshAll(); setAutoRefresh(10000);" style="padding-top: 67px;">
+    <body class="bg-primaryblue" onload="refreshAll(); setAutoRefresh(10000);" style="padding-top: 67px;">
         <div class="container-fluid">
             <nav class="navbar fixed-top bg-white">
                 <a class="navbar-brand mr-auto" href="#">
-                    <img src="static/img/header_ecs_orange_lo.png" height="40" hspace="5" alt="">
+                    <img src="static/img/ucsc_blue.png" height="40" hspace="5" alt="">
                 </a>
-                <div class="nav-itm mr-auto"><h4 class="text-flameorange">SDN IDS web ui</h4></div>
-                <button id="btn-timer" class="btn btn-sm btn-outline-success"></button>
-                <div class="nav-item ml-2" id="localtime"></div>
+                <div class="nav-itm mr-auto"><h4 class="text-primaryblue">SDN IDS web ui</h4></div>
+                <button id="btn-timer" class="btn btn-sm btn-outline-pblue"></button>
+                <div class="nav-item ml-2 text-primaryblue" id="localtime"></div>
             </nav>
             <div class="card mt-1 mb-3" id="devcard">
-                <div class="card-header bg-flameorange text-white">
+                <div class="card-header bg-primaryyellow text-primaryblue">
                     <h4 class="card-title">OpenFlow devices</h4>
                 </div>
                 <div class="card-body">
@@ -41,7 +66,7 @@
                 </div>
             </div>
             <div class="card mb-3" id="hstcard">
-                <div class="card-header bg-flameorange text-white">
+                <div class="card-header bg-primaryyellow text-primaryblue">
                     <h4 class="card-title">End-point hosts</h4>
                 </div>
                 <div class="card-body">
@@ -55,14 +80,14 @@
                 </div>
             </div>
             <div class="card mb-3" id="ppscard">
-                <div class="card-header bg-flameorange text-white">
+                <div class="card-header bg-primaryyellow text-primaryblue">
                     <h4 class="card-title">Sniffed packets per second</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6" id="chpps"></div>
                         <div class="col-md-6">
-                            <p class="lead text-ecogreen">Top 10 (Last 10 seconds)</p>
+                            <p class="lead text-primaryblue">Top 10 (Last 10 seconds)</p>
                             <table class="table table-striped table-sm">
                                 <thead class="thead-light">
                                     <tr><th>#</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Packets</th></tr>
@@ -75,7 +100,7 @@
                 </div>
             </div>
             <div class="card mb-3" id="grouping">
-                <div class="card-header bg-flameorange text-white">
+                <div class="card-header bg-primaryyellow text-primaryblue">
                     <h4 class="card-title">Device group management</h4>
                 </div>
                 <div class="card-body">
@@ -89,7 +114,7 @@
                     </div>
                     <div class="row mb-2">
                         <div class="col">
-                            <div class="lead text-ecogreen mt-2 mb-1">Create a new group</div>
+                            <div class="lead text-primaryblue mt-2 mb-1">Create a new group</div>
                             <form>
                                 <div class="form-row mb-2">
                                     <div class="col col-md-6 input-group">
@@ -105,7 +130,7 @@
                                         <input type="text" class="form-control" id="newgroupappck" placeholder="0x1234abcd" pattern="0x[0-9a-fA-F]{8}" oninput="pcheck(this);">
                                     </div>
                                 </div>
-                                <div class="form-row text-ecogreen pl-3">Bucket actions</div>
+                                <div class="form-row text-primaryblue pl-3">Bucket actions</div>
                                 <div class="form-row mb-1 pl-3">
                                     <div class="col col-md-4 input-group">
                                         <div class="input-group-prepend"><div class="input-group-text">Type</div></div>
@@ -146,7 +171,7 @@
                                         <button type="button" class="btn btn-sm btn-danger w-100" onclick="removeAction();">Remove action</button>
                                     </div>
                                 </div>
-                                <div class="form-row text-ecogreen pl-3">Group buckets</div>
+                                <div class="form-row text-primaryblue pl-3">Group buckets</div>
                                 <div class="form-row mb-2 pl-3">
                                     <div class="col col-md-12">
                                         <textarea class="form-control w-100" id="groupbuckets" rows="5" readonly></textarea>
@@ -167,7 +192,7 @@
                             </form>
                         </div>
                         <div class="col">
-                            <div class="lead text-ecogreen">Current groups</div>
+                            <div class="lead text-primaryblue">Current groups</div>
                             <div class="table-responsive-md scrollable">
                                 <table class="table table-striped table-sm">
                                     <thead class="thead-light">
@@ -191,7 +216,7 @@
                 </div>
             </div>
             <div class="card mb-3" id="flows">
-                <div class="card-header bg-flameorange text-white">
+                <div class="card-header bg-primaryyellow text-primaryblue">
                     <h4 class="card-title">Flow table management</h4>
                 </div>
                 <div class="card-body">
@@ -205,7 +230,7 @@
                     </div>
                     <div class="row mb-2">
                         <div class="col col-md-4">
-                            <div class="lead text-ecogreen mb-2">Create a new flow</div>
+                            <div class="lead text-primaryblue mb-2">Create a new flow</div>
                             <form class="pl-3">
                                 <div class="form-row mb-1">
                                     <div class="col col-md-6 input-group">
@@ -229,7 +254,7 @@
                                             </div>
                                         </div>
                                 </div>
-                                <div class="form-row text-ecogreen">Treatment</div>
+                                <div class="form-row text-primaryblue">Treatment</div>
                                 <div class="form-row mb-1">
                                     <div class="col col-md-6 input-group">
                                         <div class="input-group-prepend"><div class="input-group-text">Type</div></div>
@@ -280,7 +305,7 @@
                                         <button type="button" class="btn btn-sm btn-danger w-50" onclick="removeInstruction();">Remove instruction</button>
                                     </div>
                                 </div>
-                                <div class="form-row text-ecogreen">Selector</div>
+                                <div class="form-row text-primaryblue">Selector</div>
                                 <div class="form-row mb-1">
                                     <div class="col col-md-6 input-group">
                                         <div class="input-group-prepend"><div class="input-group-text">Type</div></div>
@@ -351,7 +376,7 @@
                             </div>
                         </div>
                         <div class="col col-md-8">
-                            <div class="lead text-ecogreen">Current flows</div>
+                            <div class="lead text-primaryblue">Current flows</div>
                             <div class="table-responsive-md scrollable">
                                 <table class="table table-hover table-striped table-sm">
                                     <thead class="thead-light">
