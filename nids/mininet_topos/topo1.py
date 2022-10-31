@@ -16,7 +16,7 @@ from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from mininet.link import Intf
 
-CONT_IP = '192.168.56.50'
+CONT_IP = '192.168.56.5'
 REST_PORT = 8181
 REST_USER = 'onos'
 REST_PASS = 'rocks'
